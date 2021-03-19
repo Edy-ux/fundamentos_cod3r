@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio HTML</title>
+</head>
+<body>
+
+    <header>
+        <h1>Exércicio HTML</h1>
+    </header>
+
+    <nav> 
+        <a  href="exercicios/teste.html" ancor> 00 --Teste</a> |
+        <a  href="exercicios/temp.html" ancor> TEMP</a>
+
+         <section id='conteudo'>
+               
+         </section>
+         <br>
+        <footer>
+             CURSO WB 
+        </footer>
+    </nav>
+
+  <script>
+      
+      const conteudo = document.querySelector('#conteudo')
+
+       document.querySelectorAll('[ancor]').forEach(link => {
+         link.onclick = function(e){
+             e.preventDefault()
+           
+             fetch(link.href)  //TODO  learn about fetch and promisse 
+                .then(resp => resp.text())
+                  .then(html => conteudo.innerHTML = html)    
+         }
+     })
+  </script>
+
+</body>
+</html>
